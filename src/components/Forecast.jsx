@@ -13,11 +13,6 @@ const Forecast = () => {
         dispatch(getForecastData(customRegion));
     }, [dispatch, region]);
 
-    const calculateAQI = () => {
-        const pollutants = current.air_quality;
-        const aqiValues = Object.values(pollutants);
-        return Math.max(...aqiValues);
-    };
     return (
         <>
             {/* <div className="p-2">
