@@ -1,4 +1,4 @@
-# THIS PROJECT USING WEATHER API
+# THIS PROJECT BUILD WITH WEATHER API
 Weather API Documentation : https://www.weatherapi.com/docs/
 
 # React + Vite
