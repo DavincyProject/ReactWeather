@@ -52,7 +52,7 @@ const Test = () => {
           <div className="border-t border-gray-300 my-4"></div>
 
           <div className="flex justify-around items-center">
-            <h2 className="text-4xl font-bold mb-4 text-white">
+            <h2 className="text-2xl md:text-4xl font-bold mb-4 text-white">
               {current?.temp_c}°C / {current?.temp_f}°F
             </h2>
             <p className="text-white">
