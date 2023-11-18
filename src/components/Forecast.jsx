@@ -1,74 +1,64 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getForecastData } from "../redux/actions/weatherActions";
 
 const Forecast = () => {
-    const [region, setRegion] = useState("jakarta");
     const dispatch = useDispatch();
-
-    const { current, location } = useSelector((state) => state.forecast);
+    const forecastDay = useSelector(
+        (state) => state.forecast.forecastData.forecastday
+    );
+    const { current } = useSelector((state) => state.forecast);
 
     useEffect(() => {
-        const customRegion = region.replace(/\s/g, "");
-        dispatch(getForecastData(customRegion));
-    }, [dispatch, region]);
+        dispatch(getForecastData());
+    }, [dispatch]);
 
+    const indonesiaTime = (inputDateString) => {
+        const [year, month, day] = inputDateString.split("-");
+        const formattedDate = `${day}-${month}-${year}`;
+
+        return formattedDate;
+    };
+
+    console.log(forecastDay);
     return (
         <>
-            {/* <div className="p-2">
-                <input
-                    type="text"
-                    value={region}
-                    onChange={(e) => setRegion(e.target.value)}
-                    placeholder="Input Your Location"
-                    className="border rounded-md p-1 font-bold"
-                ></input>
+            <div className="mt-2 p-2 text-white container mx-auto bg-white bg-opacity-25 rounded-md">
+                <h1 className="font-bold text-center mb-2">3-Days Forecast</h1>
+                {/* <div className="border-t border-gray-300 my-2"></div> */}
 
-                <p>Location : {formatLocation(location.name)}</p>
-                <p>Temperature : {current?.temp_c}°C</p>
-                <p>Last Update : {current?.last_updated}</p>
-                {current?.condition && (
-                    <>
-                        <p>{current?.condition.text}</p>
-                        <img src={`${current?.condition.icon}`} />
-                    </>
-                )}
-            </div> */}
+                {forecastDay &&
+                    forecastDay.map((item) => (
+                        <div
+                            key={item.date_epoch}
+                            className="flex items-center justify-between mx-1"
+                        >
+                            <p>{indonesiaTime(item.date)}</p>
 
-            <div className="container mx-auto p-2">
-                <input
-                    type="text"
-                    value={region}
-                    onChange={(e) => setRegion(e.target.value)}
-                    placeholder="Input Your Location"
-                    className="border rounded-md p-1 font-bold mb-2"
-                ></input>
-                <div className="container mx-auto bg-[#4d425f] text-[#e0e0e0] rounded-md">
-                    <div className="p-2 flex flex-col justify-center items-center border rounded-md">
-                        <p className="mb-3">{current?.temp_c}°C</p>
-                        <div className="flex justify-center items-center">
-                            {current?.condition && (
-                                <img
-                                    src={`${current?.condition.icon}`}
-                                    alt={location.name}
-                                    className="w-[80px]"
-                                />
-                            )}
+                            <img
+                                src={`${item.day.condition.icon}`}
+                                className="w-[45px]"
+                            />
+
+                            <p className="text-[14px]">
+                                {item.day.condition.text}
+                            </p>
+                            <p>{item.day.maxtemp_c}°C</p>
                         </div>
-                        {current?.condition && (
-                            <>
-                                <p>{current.condition.text}</p>
-                                <p>
-                                    Lat: {location.lat} Lon: {location.lon}
-                                </p>
-                                last update :{" "}
-                                {current.last_updated.slice(11, 16)}
-                            </>
-                        )}
+                    ))}
+            </div>
 
-                        <h1 className="text-4xl font-bold">{location.name}</h1>
+            <div className="flex justify-center mt-3">
+                {current?.air_quality && (
+                    <div className="flex gap-3 justify-center flex-wrap text-white">
+                        <p>CO: {current.air_quality.co}</p>
+                        <p>NO2: {current.air_quality.no2}</p>
+                        <p>O3: {current.air_quality.o3}</p>
+                        <p>SO2: {current.air_quality.so2}</p>
+                        <p>PM2.5: {current.air_quality.pm2_5}</p>
+                        <p>PM10: {current.air_quality.pm10}</p>
                     </div>
-                </div>
+                )}
             </div>
         </>
     );
