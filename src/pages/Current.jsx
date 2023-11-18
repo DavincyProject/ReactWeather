@@ -32,7 +32,7 @@ const Current = () => {
                     className="bg-gray-700 bg-opacity-50 border rounded-md p-1 font-semibold text-white mb-2"
                 ></input>
 
-                <div className="bg-gray-700 bg-opacity-50 rounded shadow p-8 w-full md:w-1/2 lg:w-1/3">
+                <div className="bg-gray-700 bg-opacity-50 rounded shadow p-8 w-full md:w-2/4 lg:w-2/4">
                     <div className="flex justify-between items-center">
                         <div>
                             <h1 className="text-xl font-bold mb-4 text-white">
@@ -77,6 +77,13 @@ const Current = () => {
 
                     <Forecast />
                 </div>
+                <h1 className="text-white font-semibold text-center mt-2 border rounded-md bg-gray-700 bg-opacity-50 p-1 w-full md:w-2/4 lg:w-2/4">
+                    DISCLAIMER :<br /> The Weather information on this website
+                    is sourced from Open Weather and may not always be accurate.
+                    It is recommended to cross-verify with official weather
+                    sources before making decisions based on the information
+                    presented on this site.
+                </h1>
             </div>
         </>
     );
