@@ -58,7 +58,7 @@ const Current = () => {
                             <h2 className="text-[17px] md:text-2xl font-bold mb-4 text-white text-center">
                                 {current?.temp_c}°C / {current?.temp_f}°F
                             </h2>
-                            <p className="text-white">
+                            <div className="text-white">
                                 {current?.condition && (
                                     <div className="flex flex-col justify-center items-center ">
                                         <img
@@ -71,7 +71,7 @@ const Current = () => {
                                         </p>
                                     </div>
                                 )}
-                            </p>
+                            </div>
                         </div>
                     </div>
 

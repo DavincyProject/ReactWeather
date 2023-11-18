@@ -20,7 +20,6 @@ const Forecast = () => {
         return formattedDate;
     };
 
-    console.log(forecastDay);
     return (
         <>
             <div className="mt-2 p-2 text-white container mx-auto bg-white bg-opacity-25 rounded-md">

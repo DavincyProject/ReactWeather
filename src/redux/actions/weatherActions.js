@@ -8,6 +8,10 @@ import {
 
 export const getForecastData = (region) => async (dispatch) => {
     try {
+        if (!region) {
+            return;
+        }
+
         const key = import.meta.env.VITE_API_KEY;
 
         const response = await axios.get(
