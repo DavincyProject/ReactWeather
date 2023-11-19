@@ -33,7 +33,7 @@ const Current = () => {
                 ></input>
 
                 <div
-                    className="bg-gray-700 bg-opacity-50 rounded shadow p-8 w-full md:w-2/4 lg:w-2/4"
+                    className="rounded shadow p-8 w-full md:w-2/4 lg:w-2/4"
                     style={{
                         backdropFilter: "blur(1px) saturate(180%)",
                         WebkitBackdropFilter: "blur(1px) saturate(180%)",
@@ -85,7 +85,7 @@ const Current = () => {
                     <Forecast />
                 </div>
                 <h1
-                    className="text-white font-semibold text-center mt-2 border rounded-md bg-gray-700 bg-opacity-50 p-1 w-full md:w-2/4 lg:w-2/4"
+                    className="text-white font-semibold text-center mt-2 border rounded-md p-1 w-full md:w-2/4 lg:w-2/4"
                     style={{
                         backdropFilter: "blur(1px) saturate(180%)",
                         WebkitBackdropFilter: "blur(1px) saturate(180%)",
