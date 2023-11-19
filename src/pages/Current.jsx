@@ -32,7 +32,15 @@ const Current = () => {
                     className="bg-gray-700 bg-opacity-50 border rounded-md p-1 font-semibold text-white mb-2"
                 ></input>
 
-                <div className="bg-gray-700 bg-opacity-50 rounded shadow p-8 w-full md:w-2/4 lg:w-2/4">
+                <div
+                    className="rounded shadow p-8 w-full md:w-2/4 lg:w-2/4"
+                    style={{
+                        backdropFilter: "blur(1px) saturate(180%)",
+                        WebkitBackdropFilter: "blur(1px) saturate(180%)",
+                        backgroundColor: "rgba(17, 25, 40, 0.50)",
+                        border: "1px solid rgba(255, 255, 255, 0.125)",
+                    }}
+                >
                     <div className="flex justify-between items-center">
                         <div>
                             <h1 className="text-xl font-bold mb-4 text-white">
@@ -74,10 +82,17 @@ const Current = () => {
                             </div>
                         </div>
                     </div>
-
                     <Forecast />
                 </div>
-                <h1 className="text-white font-semibold text-center mt-2 border rounded-md bg-gray-700 bg-opacity-50 p-1 w-full md:w-2/4 lg:w-2/4">
+                <h1
+                    className="text-white font-semibold text-center mt-2 border rounded-md p-1 w-full md:w-2/4 lg:w-2/4"
+                    style={{
+                        backdropFilter: "blur(1px) saturate(180%)",
+                        WebkitBackdropFilter: "blur(1px) saturate(180%)",
+                        backgroundColor: "rgba(17, 25, 40, 0.50)",
+                        border: "1px solid rgba(255, 255, 255, 0.125)",
+                    }}
+                >
                     DISCLAIMER :<br /> The Weather information on this website
                     is sourced from Open Weather and may not always be accurate.
                     It is recommended to cross-verify with official weather

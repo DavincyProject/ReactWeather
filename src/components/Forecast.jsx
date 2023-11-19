@@ -30,13 +30,15 @@ const Forecast = () => {
                     forecastDay.map((item) => (
                         <div
                             key={item.date_epoch}
-                            className="flex items-center justify-between mx-1"
+                            className="flex items-center justify-between"
                         >
-                            <p>{indonesiaTime(item.date)}</p>
+                            <p className="text-[12px] font-bold">
+                                {indonesiaTime(item.date)}
+                            </p>
 
                             <img
                                 src={`${item.day.condition.icon}`}
-                                className="w-[45px]"
+                                className="w-[35px] md:w-[45px]"
                             />
 
                             <p className="text-[14px]">
